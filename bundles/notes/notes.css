@@ -1,0 +1,6 @@
+@import '../../blocks/page/page.css';
+@import '../../blocks/header/header.css';
+
+li {
+    font-size: 26px;
+}

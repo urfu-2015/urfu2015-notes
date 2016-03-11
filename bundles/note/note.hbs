@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+
+    {{#if isDev}}
+        <link rel="stylesheet" href="/note.css">
+    {{else}}
+        <link rel="stylesheet" href="//urfu2015-notes.surge.sh/note.css">
+    {{/if}}
+</head>
+<body>
+    {{> header/header }}
+
+    <a href="/notes">← К списку заметок</a>
+
+    <div class="note">
+        <div class="note__name">{{ name }}</div>
+        <div class="note__text">{{ text }}</div>
+    </div>
+
+    {{> footer/footer }}
+
+    {{#if isDev}}
+        <script src="/note.js"></script>
+    {{else}}
+        <script src="//urfu2015-notes.surge.sh/note.js"></script>
+    {{/if}}
+</body>
+</html>
