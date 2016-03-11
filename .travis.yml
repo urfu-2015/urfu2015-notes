@@ -1,19 +1,19 @@
 sudo: false
 language: node_js
 node_js:
-  - "4"
+- '4'
 install:
-  - npm install
-  - npm run build
+- npm install
+- npm run build
 script:
-  - npm run lint
-  - npm test
+- npm run lint
+- npm test
 after_success:
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && npm run deploy:static'
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && npm run deploy:static'
 deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    secure: "RYtDTxQ+oCsAc5KTR+YtpdHWHlN7Ml+PWHsPul3Wdho6an8pvXhfTdMcg3sxncTji8DyOinEJQVYxaX61dw/dtd1fF7n06WWeFiXjlXAAp+17ySauWkwbFFicylrylYAl6nnC6Rw/T2FJ7Z3w4QQR377j8cgY5Ra9h3mSi7sT12xkfBYgjtyDDrajTASB5ZA3Hn9J9nRlg5Q52LIGMnGWkad+qF6MJfo5kja04YgrlAyqnPKVoxsL7k0fG0ZBjvg971DOBrxf2kt89hP7PWoXB4oOm3aNHBg7GFbyIF9qOspNcEIECjFLFaARIA556seK4zZe523HjvfSrf6QbCXsRkFEiY+zEOzUtE4KrfP9Igu+hZ9IVcLeDu2jrDnpJHRtMgFvgSbdmHExdzTbMDEBrZjfCC6N+5FjbD9HuGjW35bQ+UtneSP+dZI2xdGsFZhrlhym/zrij2DcAh9d9XS0EdIZTr0QFwg6PvyKW1EMX1zpOl02i4suVSw/Bw+C+usG3qaSOdDLvnYAYe0dKWK7wYLHxVG/6yUaN1BV8BF8mxmKqEuXRfiOnBNrPvWIJDmEZ8SOs2tlsDAK+1iTME+R2U/ivwERWP7DuJ8lOWqwCLQTtRx73CBmzWq6RvoBOZJR0BV2rCrMvZyFX6KnDj4Df5PyvfWez3lcSt2P7GjYuk="
+    secure: b9I6JKo6cTPyEOssg8Vyqi0bXOzFfPPo9SAAmmjg71oLcvQl8s2/ruNNiWWByUm64YCAUNAq4hChOcVrNkSadw6HxAwej0TNItNDbh7Gsxtt0kqWDk4Q366eVqMBvWaOpCUQ8MTzGOXZmcifynADjEkESXJIxkgAVsqA1j1Ak/MTxxvea0V9drcttS9peN/yxhcIaMIv0MiQnvP7ieLBzv6UhHegVVi59Fv6HYBxvJz3Q9jdL5cpxbgPNf9gccisONTRf1IB66TEWVVyixtnSh0yGh9cUg8QEgXMHhHF25zVRZHXvvIE2w+mbIMVM6rDVM2Tzan+uMNZfMapl+Kp+G+2gf+a/aCQUrstnsAnkON9yaBKfxngBtRkGaFdjUB1Pyx5JINLSAO8IkXFahZNa/MrefQrXHlqM92rhrWpDEiDDorKbHORlBdIz8vPTuxqonHEqIduGPpdyshrIGyo29D3+RF1T1EHO59u1MkCvKCFMmM4qlo0ifsQhUwioBV+hPP90mK05a5/dX9vr6WGDo/QmiRN6g+kL+QIu6xlaQcN6boVYqpQm6TtiWkg0gLIZCGBYPAYzDIStQN+54LhArmrFIE8UfrcN0FDmD11gz/ABnEYfQs0wZfF8xUEenvI+r+ukiEdZ2VtlAXAXB70Vy6+YwWugY+4p1O4OuWkKNs=
   on: master
   app: urfu2015-notes
