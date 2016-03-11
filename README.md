@@ -2,4 +2,5 @@
 
 Пример приложения к лекциям «Node.js», «Express.js», «Тесты», «Build, Deploy, Automate».
 
+Ссылка на приложение:  
 <a href="http://urfu2015-notes.herokuapp.com/">urfu2015-notes.herokuapp.com</a>
