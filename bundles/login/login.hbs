@@ -14,6 +14,12 @@
 <body>
     {{> header/header }}
 
+    {{#if error}}
+        <p class="auth__error">
+            {{ error }}
+        </p>
+    {{/if}}
+
     <form action="/login" method="post">
         <div>
             <label>Логин:</label>

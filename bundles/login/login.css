@@ -1,2 +1,8 @@
 @import '../../blocks/page/page.css';
 @import '../../blocks/header/header.css';
+
+.auth__error {
+    font-weight: bold;
+
+    color: #a00;
+}

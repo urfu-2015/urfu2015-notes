@@ -4,10 +4,15 @@ const user = require('./controllers/user');
 const pages = require('./controllers/pages');
 const notes = require('./controllers/notes');
 
+const passport = require('./lib/passport');
+
 module.exports = function (app) {
     app.get('/', pages.index);
 
     app.get('/login', user.login);
+    app.post('/login', passport.authenticate);
+
+    app.get('/profile', passport.onlyAuth, user.profile);
 
     app.get('/notes', notes.list);
     app.post('/notes', notes.create);
