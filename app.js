@@ -32,6 +32,12 @@ app.use((err, req, res, next) => {
     next();
 });
 
+app.use(require('express-session')({
+    secret: 'kotik',
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use((req, res, next) => {
     req.commonData = {
         meta: {
