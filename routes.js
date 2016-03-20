@@ -1,10 +1,13 @@
 'use strict';
 
+const user = require('./controllers/user');
 const pages = require('./controllers/pages');
 const notes = require('./controllers/notes');
 
 module.exports = function (app) {
     app.get('/', pages.index);
+
+    app.get('/login', user.login);
 
     app.get('/notes', notes.list);
     app.post('/notes', notes.create);
