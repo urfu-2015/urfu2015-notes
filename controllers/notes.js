@@ -14,6 +14,9 @@ exports.list = (req, res) => {
 exports.item = (req, res) => {
     const name = req.params.name;
     const note = Note.find(name);
+    const notes = Note.findAll().map(note => Object.assign(note, {
+        isSelected: note.name === name
+    }));
 
     if (!note) {
         res.sendStatus(404);
@@ -23,7 +26,8 @@ exports.item = (req, res) => {
 
     const data = {
         name: note.name,
-        text: note.text
+        text: note.text,
+        notes: notes
     };
 
     res.render('note/note', Object.assign(data, req.commonData));
