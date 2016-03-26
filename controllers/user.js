@@ -9,5 +9,5 @@ exports.login = (req, res) => {
 };
 
 exports.profile = (req, res) => {
-    res.send('Страница профиля');
+    res.send(`Привет, ${req.user.username}!`);
 };
