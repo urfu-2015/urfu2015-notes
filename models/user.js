@@ -13,6 +13,14 @@ class User {
     static findById(id) {
         return users.find(user => user.id === id);
     }
+
+    static getSerializator() {
+        return user => user.id;
+    }
+
+    static getDeserializator() {
+        return id => User.findById(id);
+    }
 }
 
 module.exports = User;
