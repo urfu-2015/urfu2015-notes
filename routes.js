@@ -10,10 +10,9 @@ module.exports = function (app) {
     app.get('/', pages.index);
 
     app.get('/login', user.login);
-    app.post('/login', passport.authenticate({
+    app.post('/login', passport.authenticate('local', {
         successRedirect: '/',
-        failureRedirect: '/login',
-        failureMessage: 'Неправильный логин или пароль'
+        failureRedirect: '/login'
     }));
 
     app.get('/profile', passport.onlyAuth, user.profile);
