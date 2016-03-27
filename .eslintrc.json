@@ -1,16 +1,24 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
     "browser": true,
     "mocha": true,
     "node": true
   },
-  "extends": "xo",
+  "plugins": [
+    "react"
+  ],
+  "extends": ["xo", "plugin:react/recommended"],
   "rules": {
     "indent": [2, 4, {"SwitchCase": 1}],
     "max-len": [2, 100],
-    "max-params": [2, 3]
+    "max-params": [2, 3],
+    "react/display-name": 0,
+    "react/prop-types": 0
   }
 }

@@ -27,8 +27,9 @@ module.exports = {
                 loader: 'file-loader'
             },
             {
-                test: /\.hbs$/,
-                loader: "handlebars-loader"
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
             }
         ]
     },
