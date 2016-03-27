@@ -2,41 +2,30 @@ require('./note.css');
 
 import React from 'react';
 import ReactDom from 'react-dom';
+import {createStore} from 'redux';
 
-import Note from '../../../client/bundles/note/note';
+import Note from '../../../client/components/note';
+import {addNote} from '../../../client/actions';
+import {noteApp} from '../../../client/reducers';
 
-var rootEl = document.getElementById('root');
+const store = createStore(noteApp);
 
-function getNoteNameFromUrl(url) {
-    url = url || window.location.pathname;
-
-    return url.split('/').pop();
+function render() {
+    ReactDom.render(
+        <Note store={store} />,
+        document.getElementById('root')
+    );
 }
+
+render();
+store.subscribe(render);
 
 fetch('/api/notes')
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        var notes = data.notes;
-
-        function render(url) {
-            var selectedNoteName = getNoteNameFromUrl(url);
-            var selectedNote = notes.filter(function (note) {
-                return note.name === selectedNoteName;
-            })[0];
-
-            ReactDom.render(
-                <Note
-                    notes={notes}
-                    name={selectedNote.name}
-                    text={selectedNote.text}
-                />,
-                rootEl
-            );
-        }
-
-        window.render = render;
-
-        render();
+        data.notes.forEach(note => {
+            store.dispatch(addNote(note));
+        });
     });
