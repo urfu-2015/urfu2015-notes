@@ -3,7 +3,9 @@ const initialState = {
     selectedNoteName: null
 };
 
-export const noteApp = (state = initialState, action) => {
+exports.noteApp = (state, action) => {
+    state = state || initialState;
+
     switch (action.type) {
         case 'ADD_NOTE':
             return {
