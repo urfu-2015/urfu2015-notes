@@ -14,7 +14,7 @@ exports.list = (req, res) => {
 exports.item = (req, res) => {
     const name = req.params.name;
     const note = Note.find(name);
-    const notes = Note.findAll().map(note => Object.assign(note, {
+    const notes = Note.findAll().map(note => Object.assign({}, note, {
         isSelected: note.name === name
     }));
 
