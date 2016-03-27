@@ -25,6 +25,10 @@ module.exports = {
             {
                 test: /\.png$/,
                 loader: 'file-loader'
+            },
+            {
+                test: /\.hbs$/,
+                loader: "handlebars-loader"
             }
         ]
     },

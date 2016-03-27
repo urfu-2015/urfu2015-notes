@@ -1,0 +1,22 @@
+{{> ../../blocks/header/header }}
+
+<a href="/notes">← К списку заметок</a>
+
+<section class="note__wrapper">
+    <ul class="note__navigation">
+        {{#each notes}}
+            {{#unless isSelected}}
+                <li><a href="/notes/{{ name }}">{{ name }}</a></li>
+            {{else}}
+                {{ name }}
+            {{/unless}}
+        {{/each}}
+    </ul>
+
+    <div class="note">
+        <div class="note__name">{{ name }}</div>
+        <div class="note__text">{{ text }}</div>
+    </div>
+</section>
+
+{{> ../../blocks/footer/footer }}

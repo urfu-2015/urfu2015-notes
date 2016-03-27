@@ -6,6 +6,15 @@ const notes = require('./controllers/notes');
 module.exports = function (app) {
     app.get('/', pages.index);
 
+    app.get('/api/notes', (req, res) => {
+        const Note = require('./models/note');
+        const notes = Note.findAll();
+
+        res.json({
+            notes: notes
+        });
+    });
+
     app.get('/notes', notes.list);
     app.post('/notes', notes.create);
     app.get('/notes/:name', notes.item);

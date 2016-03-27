@@ -21,6 +21,8 @@
     "body-parser": "1.15.0",
     "express": "4.13.4",
     "file-loader": "^0.8.5",
+    "handlebars": "4.0.5",
+    "handlebars-loader": "1.2.0",
     "hbs": "4.0.0",
     "morgan": "1.7.0"
   },
