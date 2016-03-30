@@ -10,7 +10,8 @@ module.exports = {
         main: './main/main.js',
         login: './login/login.js',
         note: './note/note.js',
-        notes: './notes/notes.js'
+        notes: './notes/notes.js',
+        form: './form/form.js'
     },
     devtool: 'source-map',
     output: {

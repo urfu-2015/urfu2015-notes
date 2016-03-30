@@ -1,0 +1,37 @@
+@import '../../blocks/page/page.css';
+@import '../../blocks/header/header.css';
+
+form {
+    width: 500px;
+    margin: auto;
+    font-size: 22px;
+}
+
+label {
+    display: block;
+}
+
+input[type=text],
+textarea{
+    width: 100%;
+    margin: 0 -5px;
+}
+
+button {
+    border: none;
+    font-size: 16px;
+}
+
+button:not([disabled]) {
+    background-color: #00A000;
+    color: #fff;
+    transition: all .15s ease-in-out;
+}
+
+.formField {
+    margin-bottom: 10px;
+}
+
+.formFooter {
+    text-align: right;
+}

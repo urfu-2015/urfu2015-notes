@@ -40,5 +40,9 @@ exports.create = (req, res) => {
 
     note.save();
 
-    res.send(data);
+    res.redirect('/notes');
+};
+
+exports.form = (req, res) => {
+    res.render('form/form', req.commonData);
 };
