@@ -12,6 +12,8 @@ const bodyParser = require('body-parser');
 const viewsDir = path.join(__dirname, 'bundles');
 const publicDir = path.join(__dirname, 'public');
 
+const passport = require('./lib/passport');
+
 app.set('views', viewsDir);
 app.set('view engine', 'hbs');
 
@@ -31,6 +33,14 @@ app.use((err, req, res, next) => {
 
     next();
 });
+
+app.use(require('express-session')({
+    secret: 'kotik',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initUser);
 
 app.use((req, res, next) => {
     req.commonData = {

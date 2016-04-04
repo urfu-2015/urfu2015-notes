@@ -8,6 +8,7 @@ module.exports = {
     context: path.join(__dirname, 'bundles'),
     entry: {
         main: './main/main.js',
+        login: './login/login.js',
         note: './note/note.js',
         notes: './notes/notes.js'
     },
