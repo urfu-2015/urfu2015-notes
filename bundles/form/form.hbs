@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+
+    {{#if isDev}}
+        <link rel="stylesheet" href="/form.css">
+
+        <!-- подключаем стили Mocha, для отображения результатов -->
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    {{else}}
+        <link rel="stylesheet" href="//urfu2015-notes.surge.sh/form.css">
+    {{/if}}
+</head>
+<body>
+    {{> header/header }}
+
+    <a href="/notes">← К списку заметок</a>
+
+    <form action="/notes" method="post" id="create-note">
+        <div class="formField">
+            <label for="name">Заголовок</label>
+            <input type="text" id="name" name="name" placeholder="Заголовок">
+        </div>
+        <div class="formField">
+            <label for="text">Содержание</label>
+            <textarea name="text" id="text" rows="10" placeholder="Содержание"></textarea>
+        </div>
+        <div class="formFooter">
+            <button type="submit" id="save" disabled>Отправить</button>
+        </div>
+    </form>
+
+    {{> footer/footer }}
+
+    {{#if isDev}}
+        <script src="/form.js"></script>
+    {{else}}
+        <script src="//urfu2015-notes.surge.sh/form.js"></script>
+    {{/if}}
+
+
+    {{#if isDev}}
+        <!-- подключаем библиотеку Mocha -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+        <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+        <script>
+            mocha.setup('bdd');
+        </script>
+
+        <!-- в этом скрипте находятся тестовые кейсы -->
+        <script src="/form.test.js"></script>
+
+        <!-- в элементе с id="mocha" будут результаты тестов -->
+        <div id="mocha"></div>
+
+        <!-- запустить тесты! -->
+        <script>
+            (window.mochaPhantomJS ? mochaPhantomJS : mocha).run();
+        </script>
+    {{/if}}
+</body>
+</html>

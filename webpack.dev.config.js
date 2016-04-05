@@ -5,10 +5,13 @@ const path = require('path');
 module.exports = {
     context: path.join(__dirname, 'bundles'),
     entry: {
+        /* eslint quote-props: ["error", "as-needed"]*/
         main: './main/main.js',
         login: './login/login.js',
         note: './note/note.js',
-        notes: './notes/notes.js'
+        notes: './notes/notes.js',
+        form: './form/form.js',
+        'form.test': './form/form.test.js'
     },
     devtool: 'source-map',
     output: {

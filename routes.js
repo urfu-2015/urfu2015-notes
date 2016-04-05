@@ -20,6 +20,7 @@ module.exports = function (app) {
     app.get('/notes', notes.list);
     app.post('/notes', notes.create);
     app.get('/notes/:name', notes.item);
+    app.get('/form', notes.form);
 
     app.all('*', pages.error404);
 
